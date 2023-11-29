@@ -1,0 +1,21 @@
+.introduction {
+    background-color: #f5f5f5; /* Light background color */
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .introduction-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .introduction h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .introduction p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  

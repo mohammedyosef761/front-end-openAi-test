@@ -1,0 +1,91 @@
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('./../../assets/hero.jpg') center/cover no-repeat; /* Replace with your image path */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 100%;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Adjust the alpha (last value) for the overlay color and transparency */
+    animation: fadeInOverlay 1s forwards;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the alpha (last value) for the overlay color and transparency */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 0.5s; /* Fade-in animation with a delay */
+  }
+  
+  /* ... rest of the styles ... */
+  
+  /* Animation keyframes */
+  @keyframes fadeInOverlay {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .hero-content {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 0.5s; /* Fade-in animation with a delay */
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .hero-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* Scale up on hover */
+  }
+  
+  /* Animation keyframes */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

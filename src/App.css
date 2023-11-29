@@ -1,0 +1,17 @@
+/* styles.css or index.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+}
+
+
+ol, ul {
+  list-style: none;
+}
+
+

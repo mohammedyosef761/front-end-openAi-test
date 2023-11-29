@@ -1,0 +1,16 @@
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .faq h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
