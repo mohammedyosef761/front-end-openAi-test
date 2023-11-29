@@ -7,7 +7,12 @@ import { Cookies } from "react-cookie";
 import { FormInput, User, WebsiteFormProps } from "../../types";
 import Spinner from "../spinner/spinner";
 
-const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit, isLoading }) => {
+const WebsiteForm: React.FC<WebsiteFormProps> = ({
+  onSubmit,
+  isLoading,
+  isError,
+  isSuccess,
+}) => {
   const {
     register,
     handleSubmit,
@@ -73,6 +78,17 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit, isLoading }) => {
         <Spinner show={isLoading} />
       ) : (
         <button type="submit">Submit</button>
+      )}
+
+      {isSuccess && (
+        <p style={{ color: "green", marginTop: "10px" }}>
+          your information is saved
+        </p>
+      )}
+      {isError && (
+        <p style={{ color: "red", marginTop: "10px" }}>
+          faild to save your information
+        </p>
       )}
     </form>
   );

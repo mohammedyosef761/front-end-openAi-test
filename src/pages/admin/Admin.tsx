@@ -12,7 +12,17 @@ const Admin: React.FC = () => {
     mutate(formData);
   };
 
-  return <WebsiteForm onSubmit={submitForm} isLoading={isLoading} />;
+  return (
+    <>
+      <WebsiteForm
+        onSubmit={submitForm}
+        isLoading={isLoading}
+        isError={isError}
+        isSuccess={isSuccess}
+      />
+      ;
+    </>
+  );
 };
 
 export default Admin;

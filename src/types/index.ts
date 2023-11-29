@@ -15,4 +15,6 @@ export type User = {
 export interface WebsiteFormProps {
   onSubmit: SubmitHandler<FormInput>;
   isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
 }

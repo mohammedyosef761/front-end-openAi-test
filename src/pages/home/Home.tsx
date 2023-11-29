@@ -4,17 +4,14 @@ import Introduction from "../../components/introdnuction/Introduction";
 import KeyPoint from "../../components/key-point/KeyPoint";
 import FAQ from "../../components/faq/Faq";
 import useGetData from "../../api/getData/useGetData";
-import { Cookies } from "react-cookie";
+import Fade from "react-reveal/Fade";
 
 const Home = () => {
   const { data, isLoading, isError, refetch } = useGetData(
     "information-website",
     "website/user_by_id"
   );
-  console.log("data information here", data?.data);
 
-  const cookie = new Cookies();
-  console.log("coockie", cookie?.get("user_id"));
   return (
     <>
       <HeroSection
@@ -23,21 +20,27 @@ const Home = () => {
       />
       <Introduction aiDescription={data?.data?.ai_description} />
       <section className="key-points">
-        <KeyPoint
-          icon="🚀"
-          title="Innovative Solutions"
-          description="Explore cutting-edge technology for your business needs."
-        />
-        <KeyPoint
-          icon="🌐"
-          title="Global Reach"
-          description="Connect with a worldwide audience through our scalable solutions."
-        />
-        <KeyPoint
-          icon="🌈"
-          title="Creative Design"
-          description="Immerse your audience with visually stunning and user-friendly interfaces."
-        />
+        <Fade left>
+          <KeyPoint
+            icon="🚀"
+            title="Innovative Solutions"
+            description="Explore cutting-edge technology for your business needs."
+          />
+        </Fade>
+        <Fade left>
+          <KeyPoint
+            icon="🌐"
+            title="Global Reach"
+            description="Connect with a worldwide audience through our scalable solutions."
+          />
+        </Fade>
+        <Fade left>
+          <KeyPoint
+            icon="🌈"
+            title="Creative Design"
+            description="Immerse your audience with visually stunning and user-friendly interfaces."
+          />
+        </Fade>
       </section>
       <FAQ />
     </>
