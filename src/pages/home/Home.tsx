@@ -17,7 +17,10 @@ const Home = () => {
   console.log("coockie", cookie?.get("user_id"));
   return (
     <>
-      <HeroSection description={data?.data?.websiteDescription} />
+      <HeroSection
+        description={data?.data?.websiteDescription}
+        name={data?.data?.websiteName}
+      />
       <Introduction aiDescription={data?.data?.ai_description} />
       <section className="key-points">
         <KeyPoint

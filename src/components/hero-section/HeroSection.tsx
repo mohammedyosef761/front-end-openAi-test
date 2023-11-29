@@ -2,13 +2,19 @@ import React from "react";
 import "./HeroSection.css";
 type HeroSection = {
   description: string;
+  name: string;
 };
-const HeroSection = ({ description }: HeroSection) => {
+const HeroSection = ({ description, name }: HeroSection) => {
   return (
     <div className="hero-section" style={{ width: "100%" }}>
       <div className="overlay"></div>
       <div className="hero-content">
-        <h1 className="hero-title">Discover the Future of Innovation</h1>
+        {name ? (
+          <h1 className="hero-title">{name}</h1>
+        ) : (
+          <h1 className="hero-title">Discover the Future of Innovation</h1>
+        )}
+
         {description ? (
           <p className="hero-description">{description}</p>
         ) : (

@@ -1,41 +1,18 @@
 // ... existing imports ...
 
+import { SubmitHandler } from "react-hook-form";
 import WebsiteForm from "../../components/form/Form";
+import { FormInput } from "../../types";
+import { useMutaionPostData } from "../../api/postData/usePostData";
 
 const Admin: React.FC = () => {
-  const submitForm = async (formData: any) => {
-    console.log("formData", formData);
-    try {
-      const response = await fetch("http://localhost:3000/website", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      console.log("Server response:", data);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
+  const { mutate, isLoading, isError, isSuccess, data } =
+    useMutaionPostData("website");
+  const submitForm: SubmitHandler<FormInput> = async (formData) => {
+    mutate(formData);
   };
 
-  // useEffect(() => {
-  //   const fetchWebsiteInfo = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:3000/website");
-  //       const data = await response.json();
-  //       setWebsiteInfo(data);
-  //     } catch (error) {
-  //       console.error("Error fetching website info:", error);
-  //     }
-  //   };
-
-  //   fetchWebsiteInfo();
-  // }, []);
-
-  return <WebsiteForm onSubmit={submitForm} />;
+  return <WebsiteForm onSubmit={submitForm} isLoading={isLoading} />;
 };
 
 export default Admin;

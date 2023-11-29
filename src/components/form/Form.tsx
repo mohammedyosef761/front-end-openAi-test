@@ -4,24 +4,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import "./Form.css"; // Import the CSS file for styling
 import useGetData from "../../api/getData/useGetData";
 import { Cookies } from "react-cookie";
+import { FormInput, User, WebsiteFormProps } from "../../types";
+import Spinner from "../spinner/spinner";
 
-interface FormInput {
-  id: number | string;
-  websiteName: string;
-  websiteDescription: string;
-  targetUser: string;
-  ai_description: string;
-}
-type User = {
-  name: string;
-  id: number | string;
-};
-
-interface WebsiteFormProps {
-  onSubmit: SubmitHandler<FormInput>;
-}
-
-const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit }) => {
+const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit, isLoading }) => {
   const {
     register,
     handleSubmit,
@@ -30,16 +16,13 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit }) => {
   const cookies = new Cookies();
 
   const handleFormSubmit: SubmitHandler<FormInput> = (data) => {
-    console.log("data submit id", data);
     cookies.set("user_id", +data?.targetUser);
     onSubmit(data);
   };
 
-  const { data, isLoading, isError, refetch } = useGetData(
-    "information-website",
-    "user"
-  );
-  // console.log("data all FormInput", data);
+  const { data } = useGetData("information-website", "user");
+  // console.log("isLoading", isLoading);
+
   return (
     <form className="website-form" onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="form-group">
@@ -66,7 +49,12 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit }) => {
 
       <div className="form-group">
         <label htmlFor="targetUser">Target user:</label>
-        <select {...register("targetUser", { required: true })}>
+        <select
+          {...register("targetUser", {
+            required: "please select a target user",
+          })}
+        >
+          <option selected></option>
           {data &&
             data?.data?.length > 0 &&
             data?.data?.map((item: User) => {
@@ -76,11 +64,16 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({ onSubmit }) => {
                 </option>
               );
             })}
-          {/* Add more options as needed */}
         </select>
+        {errors.targetUser && (
+          <p className="error">{errors.targetUser.message}</p>
+        )}
       </div>
-
-      <button type="submit">Submit</button>
+      {isLoading ? (
+        <Spinner show={isLoading} />
+      ) : (
+        <button type="submit">Submit</button>
+      )}
     </form>
   );
 };
