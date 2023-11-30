@@ -1,6 +1,7 @@
 import axios from "axios";
 // import { baseURL } from "../constant/configEndpoints";
 import { Cookies } from "react-cookie";
+import { cookieKey } from "../constants";
 // import { cookiesKey } from "../constant/cookiesKey";
 
 const api = axios.create({
@@ -13,11 +14,11 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const cookies = new Cookies();
-  const user_id = cookies.get("user_id");
-  console.log("user_id", user_id);
+  const user_id = cookies.get(cookieKey.userId);
+  console.log("userIddd", user_id);
   config.headers = {
     ...config.headers,
-    id: cookies.get("user_id"),
+    id: user_id,
   };
 
   return config;

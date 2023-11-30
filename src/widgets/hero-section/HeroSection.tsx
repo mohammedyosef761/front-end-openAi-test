@@ -1,10 +1,8 @@
 import React from "react";
 import "./HeroSection.css";
-type HeroSection = {
-  description: string;
-  name: string;
-};
-const HeroSection = ({ description, name }: HeroSection) => {
+import { HeroSectionType } from "../../types";
+
+const HeroSection = ({ description, name }: HeroSectionType) => {
   return (
     <div className="hero-section" style={{ width: "100%" }}>
       <div className="overlay"></div>

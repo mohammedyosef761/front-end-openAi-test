@@ -1,5 +1,7 @@
+@import "../../style/variable.css";
+
 .footer {
-    background-color: #1e1e1e;
+    background-color: var(--secondary-color);
     color: #fff;
     padding: 2rem 1rem;
     width: 100%;
@@ -19,7 +21,7 @@
   .footer-section h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #4caf50; /* Accent color */
+    color: var(--primary-color); /* Accent color */
   }
   
   .footer-section p {
@@ -28,13 +30,13 @@
   }
   
   .footer-section a {
-    color: #4caf50; /* Accent color for links */
+    color:  var(--primary-color); /* Accent color for links */
     text-decoration: none;
     transition: color 0.3s;
   }
   
   .footer-section a:hover {
-    color: #45a049; /* Hover color for links */
+    color: var(--primary-color); /* Hover color for links */
   }
   
   .footer-bottom {
@@ -44,12 +46,12 @@
   }
   
   .footer-bottom a {
-    color: #4caf50; /* Accent color for links */
+    color: var(--primary-color); /* Accent color for links */
     text-decoration: none;
     transition: color 0.3s;
   }
   
   .footer-bottom a:hover {
-    color: #45a049; /* Hover color for links */
+    color: var(--primary-color); /* Hover color for links */
   }
  

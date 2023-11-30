@@ -4,7 +4,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Layout from "./components/layout/Layout";
+import Layout from "./widgets/layout/Layout";
 import Admin from "./pages/admin/Admin";
 import { QueryClient, QueryClientProvider } from "react-query";
 

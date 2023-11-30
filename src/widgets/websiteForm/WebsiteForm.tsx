@@ -1,32 +1,27 @@
 // WebsiteForm.tsx
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import "./Form.css"; // Import the CSS file for styling
-import useGetData from "../../api/getData/useGetData";
-import { Cookies } from "react-cookie";
+import "./WebsiteForm.css"; // Import the CSS file for styling
+
 import { FormInput, User, WebsiteFormProps } from "../../types";
-import Spinner from "../spinner/spinner";
+import Spinner from "../../components/spinner/Spinner";
 
 const WebsiteForm: React.FC<WebsiteFormProps> = ({
   onSubmit,
   isLoading,
   isError,
   isSuccess,
+  data,
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInput>();
-  const cookies = new Cookies();
 
   const handleFormSubmit: SubmitHandler<FormInput> = (data) => {
-    cookies.set("user_id", +data?.targetUser);
     onSubmit(data);
   };
-
-  const { data } = useGetData("information-website", "user");
-  // console.log("isLoading", isLoading);
 
   return (
     <form className="website-form" onSubmit={handleSubmit(handleFormSubmit)}>
@@ -61,8 +56,8 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
         >
           <option selected></option>
           {data &&
-            data?.data?.length > 0 &&
-            data?.data?.map((item: User) => {
+            data?.length > 0 &&
+            data?.map((item: User) => {
               return (
                 <option key={item?.id} value={item?.id}>
                   {item?.name}

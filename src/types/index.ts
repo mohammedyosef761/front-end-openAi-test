@@ -17,4 +17,15 @@ export interface WebsiteFormProps {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
+  data: User[];
 }
+
+export interface FAQItemProps {
+  question: string;
+  answer: string;
+}
+
+export type HeroSectionType = {
+  description: string;
+  name: string;
+};

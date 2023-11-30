@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "./FAQItem.css";
-
-interface FAQItemProps {
-  question: string;
-  answer: string;
-}
+import { FAQItemProps } from "../../types";
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);

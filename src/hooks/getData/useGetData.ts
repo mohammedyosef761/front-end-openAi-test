@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { api } from "../api";
+import { api } from "../../api/api";
 
 const useGetData = (queryCash: string, endpoint: string) => {
   const GetFunction = async () => {
