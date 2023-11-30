@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 
 import { useMutation, useQueryClient } from "react-query";
-import { api } from "../../api/api";
+import { api } from "../../helper/api";
 
 export const useMutaionPostData = <T>(url: string, invalideData?: string) => {
   const PostFunction = async (Data: T): Promise<any> => {
