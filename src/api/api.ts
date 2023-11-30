@@ -1,8 +1,6 @@
 import axios from "axios";
-// import { baseURL } from "../constant/configEndpoints";
 import { Cookies } from "react-cookie";
 import { cookieKey } from "../constants";
-// import { cookiesKey } from "../constant/cookiesKey";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
