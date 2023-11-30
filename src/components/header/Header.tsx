@@ -13,7 +13,7 @@ const Header = () => {
     <header className="header">
       <div className="logo" style={{ marginLeft: "1rem" }}>
         <span className="logo-icon">YourLogo</span>
-        <span className="logo-text">YourWebsite</span>
+        {/* <span className="logo-text">YourWebsite</span> */}
       </div>
       <label
         htmlFor="nav-toggle"

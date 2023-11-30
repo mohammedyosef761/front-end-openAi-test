@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import "../websiteForm/WebsiteForm.css"; // Import the CSS file for styling
+import "../../style/form.css";
 
 import {
   FormInput,
@@ -28,7 +28,7 @@ const UsersForm: React.FC<UserFormPorps> = ({
   };
 
   return (
-    <form className="website-form" onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className="parent-form " onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="form-group">
         <label htmlFor="name">User Name:</label>
         <input {...register("name", { required: "user name is required" })} />

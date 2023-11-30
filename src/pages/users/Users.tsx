@@ -23,7 +23,6 @@ const Users: React.FC = () => {
         isError={isError}
         isSuccess={isSuccess}
       />
-      ;
     </>
   );
 };

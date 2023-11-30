@@ -1,7 +1,7 @@
 // WebsiteForm.tsx
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import "./WebsiteForm.css"; // Import the CSS file for styling
+import "../../style/form.css";
 
 import { FormInput, User, WebsiteFormProps } from "../../types";
 import Spinner from "../../components/spinner/Spinner";
@@ -24,7 +24,7 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
   };
 
   return (
-    <form className="website-form" onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className="parent-form" onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="form-group">
         <label htmlFor="websiteName">Website Name:</label>
         <input
