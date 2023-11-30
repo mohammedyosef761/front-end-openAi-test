@@ -40,6 +40,11 @@ const Header = () => {
               Admin
             </Link>
           </li>
+          <li>
+            <Link to="/users" onClick={toggleNav}>
+              User
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

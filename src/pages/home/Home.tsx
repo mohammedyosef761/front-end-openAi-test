@@ -6,14 +6,14 @@ import FAQ from "../../widgets/faq/Faq";
 import useGetData from "../../hooks/getData/useGetData";
 import Fade from "react-reveal/Fade";
 import { keyPointData } from "../../mock-data";
+import { cashData, endPoint } from "../../constants";
 
 const Home = () => {
-  const { data, isLoading, isError, refetch } = useGetData(
-    "information-website",
-    "website/user_by_id"
+  const { data } = useGetData(
+    cashData.websiteInformation,
+    endPoint.websiteUserByid
   );
 
-  console.log("data website", data);
   return (
     <>
       <HeroSection

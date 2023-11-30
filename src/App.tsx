@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import Layout from "./widgets/layout/Layout";
 import Admin from "./pages/admin/Admin";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Users from "./pages/users/Users";
 
 function App() {
   const queryClient = new QueryClient();
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </QueryClientProvider>
       </Layout>
