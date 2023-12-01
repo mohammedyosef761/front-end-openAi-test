@@ -2,7 +2,7 @@
 
 import { SubmitHandler } from "react-hook-form";
 import WebsiteForm from "../../widgets/websiteForm/WebsiteForm";
-import { FormInput } from "../../types";
+import { FormWebsiteInput } from "../../types";
 import { useMutaionPostData } from "../../hooks/postData/usePostData";
 import { Cookies } from "react-cookie";
 import useGetData from "../../hooks/getData/useGetData";
@@ -15,7 +15,8 @@ const Admin: React.FC = () => {
   const { mutate, isLoading, isError, isSuccess } = useMutaionPostData(
     endPoint.webSite
   );
-  const submitForm: SubmitHandler<FormInput> = async (formData) => {
+
+  const submitForm: SubmitHandler<FormWebsiteInput> = async (formData) => {
     cookies.set(cookieKey.userId, +formData?.targetUser);
     mutate(formData);
   };

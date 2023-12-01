@@ -1,3 +1,5 @@
+import { FormFieldConfig, MyFormWebsiteData } from "../types";
+
 export const faqData = [
   {
     question: "What services do you offer?",
@@ -30,5 +32,28 @@ export const keyPointData = [
     title: "Creative Design",
     description:
       "Immerse your audience with visually stunning and user-friendly interfaces.",
+  },
+];
+
+export const myFormFields: FormFieldConfig<MyFormWebsiteData>[] = [
+  {
+    name: "websiteName",
+    title: "WebSite Name",
+    type: "input",
+    validationRules: { required: "WebSite Name is required" },
+    inputProps: { placeholder: "Enter website name" },
+  },
+  {
+    name: "websiteDescription",
+    title: "Website Description",
+    type: "input",
+    validationRules: { required: "WebSite Description is required" },
+    inputProps: { placeholder: "Enter website description" },
+  },
+  {
+    name: "targetUser",
+    title: "Target user",
+    type: "select",
+    validationRules: { required: "Please select a target user" },
   },
 ];

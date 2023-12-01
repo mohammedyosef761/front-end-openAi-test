@@ -4,7 +4,7 @@ import "../../style/form.css";
 
 import { FormUserInput, UserFormPorps } from "../../types";
 import Spinner from "../../components/spinner/Spinner";
-import GenericInput from "../../components/genericInput/Input";
+import GenericInput from "../../components/genericInput/GenericInput";
 import { alertMessages } from "../../constants";
 
 const UsersForm: React.FC<UserFormPorps> = ({
