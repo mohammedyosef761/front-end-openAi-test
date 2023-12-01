@@ -11,7 +11,6 @@ const Users: React.FC = () => {
     endPoint.user
   );
   const submitForm: SubmitHandler<FormUserInput> = async (formData) => {
-    console.log("formData", formData);
     mutate(formData);
   };
 

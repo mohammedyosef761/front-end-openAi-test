@@ -1,3 +1,6 @@
+
+@import "../../style/variable.css";
+
 .introduction {
     background-color: #f5f5f5; /* Light background color */
     padding: 4rem 2rem;
@@ -17,6 +20,6 @@
   
   .introduction p {
     font-size: 1.2rem;
-    color: #555;
+    color:var(--third-color);
   }
   

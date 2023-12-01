@@ -5,6 +5,8 @@ import "../../style/form.css";
 
 import { FormInput, User, WebsiteFormProps } from "../../types";
 import Spinner from "../../components/spinner/Spinner";
+import GenericInput from "../../components/genericInput/Input";
+import { alertMessages } from "../../constants";
 
 const WebsiteForm: React.FC<WebsiteFormProps> = ({
   onSubmit,
@@ -25,27 +27,23 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
 
   return (
     <form className="parent-form" onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="form-group">
-        <label htmlFor="websiteName">Website Name:</label>
-        <input
-          {...register("websiteName", { required: "Website Name is required" })}
-        />
-        {errors.websiteName && (
-          <p className="error">{errors.websiteName.message}</p>
-        )}
-      </div>
+      <GenericInput
+        name={"websiteName"}
+        title="WebSite Name"
+        register={register}
+        errors={errors}
+        validationRules={{ required: "WebSite Name is required" }}
+        inputProps={{ placeholder: "Enter website name" }}
+      />
 
-      <div className="form-group">
-        <label htmlFor="websiteDescription">Website Description:</label>
-        <input
-          {...register("websiteDescription", {
-            required: "Website Description is required",
-          })}
-        />
-        {errors.websiteDescription && (
-          <p className="error">{errors.websiteDescription.message}</p>
-        )}
-      </div>
+      <GenericInput
+        name={"websiteDescription"}
+        title="Website Description"
+        register={register}
+        errors={errors}
+        validationRules={{ required: "WebSite Desciption is required" }}
+        inputProps={{ placeholder: "Enter website description" }}
+      />
 
       <div className="form-group">
         <label htmlFor="targetUser">Target user:</label>
@@ -54,7 +52,6 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
             required: "please select a target user",
           })}
         >
-          <option selected></option>
           {data &&
             data?.length > 0 &&
             data?.map((item: User) => {
@@ -64,6 +61,7 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
                 </option>
               );
             })}
+          <option selected></option>
         </select>
         {errors.targetUser && (
           <p className="error">{errors.targetUser.message}</p>
@@ -77,13 +75,11 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
 
       {isSuccess && (
         <p style={{ color: "green", marginTop: "10px" }}>
-          your information is saved
+          {alertMessages.succes}
         </p>
       )}
       {isError && (
-        <p style={{ color: "red", marginTop: "10px" }}>
-          faild to save your information
-        </p>
+        <p style={{ color: "red", marginTop: "10px" }}>{alertMessages.faild}</p>
       )}
     </form>
   );

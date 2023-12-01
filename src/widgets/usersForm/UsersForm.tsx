@@ -2,14 +2,10 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "../../style/form.css";
 
-import {
-  FormInput,
-  FormUserInput,
-  User,
-  UserFormPorps,
-  WebsiteFormProps,
-} from "../../types";
+import { FormUserInput, UserFormPorps } from "../../types";
 import Spinner from "../../components/spinner/Spinner";
+import GenericInput from "../../components/genericInput/Input";
+import { alertMessages } from "../../constants";
 
 const UsersForm: React.FC<UserFormPorps> = ({
   onSubmit,
@@ -29,21 +25,23 @@ const UsersForm: React.FC<UserFormPorps> = ({
 
   return (
     <form className="parent-form " onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="form-group">
-        <label htmlFor="name">User Name:</label>
-        <input {...register("name", { required: "user name is required" })} />
-        {errors.name && <p className="error">{errors.name.message}</p>}
-      </div>
+      <GenericInput
+        name={"name"}
+        title="user name"
+        register={register}
+        errors={errors}
+        validationRules={{ required: "Name is required" }}
+        inputProps={{ placeholder: "Enter username" }}
+      />
 
-      <div className="form-group">
-        <label htmlFor="password">password:</label>
-        <input
-          {...register("password", {
-            required: "password is required",
-          })}
-        />
-        {errors.password && <p className="error">{errors.password.message}</p>}
-      </div>
+      <GenericInput
+        name={"password"}
+        title="password"
+        register={register}
+        errors={errors}
+        validationRules={{ required: "Password is required" }}
+        inputProps={{ type: "password", placeholder: "Enter password" }}
+      />
 
       {isLoading ? (
         <Spinner show={isLoading} />
@@ -53,13 +51,11 @@ const UsersForm: React.FC<UserFormPorps> = ({
 
       {isSuccess && (
         <p style={{ color: "green", marginTop: "10px" }}>
-          your information is saved
+          {alertMessages.succes}
         </p>
       )}
       {isError && (
-        <p style={{ color: "red", marginTop: "10px" }}>
-          faild to save your information
-        </p>
+        <p style={{ color: "red", marginTop: "10px" }}>{alertMessages.faild}</p>
       )}
     </form>
   );

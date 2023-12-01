@@ -12,11 +12,10 @@ const Admin: React.FC = () => {
   const cookies = new Cookies();
 
   const { data: usersData } = useGetData(cashData.users, endPoint.user);
-  const { mutate, isLoading, isError, isSuccess, data } = useMutaionPostData(
+  const { mutate, isLoading, isError, isSuccess } = useMutaionPostData(
     endPoint.webSite
   );
   const submitForm: SubmitHandler<FormInput> = async (formData) => {
-    console.log("userId here", formData);
     cookies.set(cookieKey.userId, +formData?.targetUser);
     mutate(formData);
   };

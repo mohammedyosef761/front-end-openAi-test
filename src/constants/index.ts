@@ -11,3 +11,8 @@ export const cashData = {
 export const cookieKey = {
   userId: "user_id",
 };
+
+export const alertMessages = {
+  succes: "your information is saved",
+  faild: "faild to save your information",
+};

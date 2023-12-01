@@ -1,3 +1,5 @@
+@import "../../style//variable.css";
+
 .key-point {
     background-color: #fff;
     border: 1px solid #d7d3d3;
@@ -29,6 +31,6 @@
   }
   
   .key-point-description {
-    color: #555;
+    color:var(--third-color);
   }
   
