@@ -1,64 +1,31 @@
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form";
 import "../../style/form.css";
+import GenericForm from "../../components/genericForm/GenericForm";
+import { FormWebsiteInput, WebsiteFormProps } from "../../types";
+import { UsersFields } from "../../mock-data";
 
-import { FormUserInput, UserFormPorps } from "../../types";
-import Spinner from "../../components/spinner/Spinner";
-import GenericInput from "../../components/genericInput/GenericInput";
-import { alertMessages } from "../../constants";
-
-const UsersForm: React.FC<UserFormPorps> = ({
+const WebsiteForm: React.FC<WebsiteFormProps> = ({
   onSubmit,
   isLoading,
   isError,
   isSuccess,
+  data,
 }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormUserInput>();
-
-  const handleFormSubmit: SubmitHandler<FormUserInput> = (data) => {
-    onSubmit(data);
+  const handleFormSubmit: SubmitHandler<FormWebsiteInput> = (formdata) => {
+    onSubmit(formdata);
   };
 
   return (
-    <form className="parent-form " onSubmit={handleSubmit(handleFormSubmit)}>
-      <GenericInput
-        name={"name"}
-        title="user name"
-        register={register}
-        errors={errors}
-        validationRules={{ required: "Name is required" }}
-        inputProps={{ placeholder: "Enter username" }}
-      />
-
-      <GenericInput
-        name={"password"}
-        title="password"
-        register={register}
-        errors={errors}
-        validationRules={{ required: "Password is required" }}
-        inputProps={{ type: "password", placeholder: "Enter password" }}
-      />
-
-      {isLoading ? (
-        <Spinner show={isLoading} />
-      ) : (
-        <button type="submit">Submit</button>
-      )}
-
-      {isSuccess && (
-        <p style={{ color: "green", marginTop: "10px" }}>
-          {alertMessages.succes}
-        </p>
-      )}
-      {isError && (
-        <p style={{ color: "red", marginTop: "10px" }}>{alertMessages.faild}</p>
-      )}
-    </form>
+    <GenericForm
+      formFields={UsersFields}
+      onSubmit={handleFormSubmit}
+      isLoading={isLoading}
+      isError={isError}
+      isSuccess={isSuccess}
+      data={data}
+    />
   );
 };
 
-export default UsersForm;
+export default WebsiteForm;

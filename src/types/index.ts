@@ -42,6 +42,7 @@ export interface FormFieldConfig<T> {
   name: keyof T;
   title: string;
   type: "input" | "select";
+  typeOfInput?: "password" | "email" | string;
   validationRules: Record<string, string>;
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   selectProps?: React.SelectHTMLAttributes<HTMLSelectElement>;
@@ -54,6 +55,11 @@ export interface GenericFormProps<T> {
   isError: boolean;
   isSuccess: boolean;
   data?: any;
+}
+
+export interface MyFormUsersData {
+  name: string;
+  password: string;
 }
 
 export interface MyFormWebsiteData {

@@ -1,4 +1,4 @@
-import { FormFieldConfig, MyFormWebsiteData } from "../types";
+import { FormFieldConfig, MyFormUsersData, MyFormWebsiteData } from "../types";
 
 export const faqData = [
   {
@@ -35,7 +35,7 @@ export const keyPointData = [
   },
 ];
 
-export const myFormFields: FormFieldConfig<MyFormWebsiteData>[] = [
+export const WebSiteFields: FormFieldConfig<MyFormWebsiteData>[] = [
   {
     name: "websiteName",
     title: "WebSite Name",
@@ -55,5 +55,22 @@ export const myFormFields: FormFieldConfig<MyFormWebsiteData>[] = [
     title: "Target user",
     type: "select",
     validationRules: { required: "Please select a target user" },
+  },
+];
+
+export const UsersFields: FormFieldConfig<MyFormUsersData>[] = [
+  {
+    name: "name",
+    title: "User Name",
+    type: "input",
+    validationRules: { required: "user name is required" },
+    inputProps: { placeholder: "Enter user name" },
+  },
+  {
+    name: "password",
+    title: "password",
+    type: "input",
+    validationRules: { required: "password is required" },
+    inputProps: { placeholder: "Enter password", type: "password" },
   },
 ];

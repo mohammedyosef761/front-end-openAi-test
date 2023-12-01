@@ -2,12 +2,8 @@ import React from "react";
 import { SubmitHandler } from "react-hook-form";
 import "../../style/form.css";
 import GenericForm from "../../components/genericForm/GenericForm";
-import {
-  FormFieldConfig,
-  FormWebsiteInput,
-  WebsiteFormProps,
-} from "../../types";
-import { myFormFields } from "../../mock-data";
+import { FormWebsiteInput, WebsiteFormProps } from "../../types";
+import { WebSiteFields } from "../../mock-data";
 
 const WebsiteForm: React.FC<WebsiteFormProps> = ({
   onSubmit,
@@ -22,7 +18,7 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
 
   return (
     <GenericForm
-      formFields={myFormFields}
+      formFields={WebSiteFields}
       onSubmit={handleFormSubmit}
       isLoading={isLoading}
       isError={isError}
