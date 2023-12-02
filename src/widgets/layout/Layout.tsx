@@ -9,9 +9,13 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Header />
-      <div style={{ marginTop: "43px", minHeight: "350px" }}>{children}</div>
-      <Footer />
+      <div
+        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      >
+        <Header />
+        <div style={{ flex: 1, marginTop: "43px" }}>{children}</div>
+        <Footer />
+      </div>
     </>
   );
 };

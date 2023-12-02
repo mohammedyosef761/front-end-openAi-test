@@ -30,7 +30,6 @@ const Admin: React.FC = () => {
         isSuccess={isSuccess}
         data={usersData?.data}
       />
-      ;
     </>
   );
 };
