@@ -13,7 +13,6 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const cookies = new Cookies();
   const user_id = cookies.get(cookieKey.userId);
-  console.log("userIddd", user_id);
   config.headers = {
     ...config.headers,
     id: user_id,

@@ -24,7 +24,7 @@ const Home = () => {
       <section className="key-points">
         <Fade left>
           {keyPointData?.map((item, index) => {
-            return <KeyPoint {...item} key={index} />;
+            return <KeyPoint {...item} key={index + 1} />;
           })}
         </Fade>
       </section>

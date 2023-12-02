@@ -12,7 +12,7 @@ const FAQ: React.FC = () => {
         <div className="faq-list">
           {faqData.map((item, index) => (
             <FAQItem
-              key={index}
+              key={index + 1}
               question={item.question}
               answer={item.answer}
             />

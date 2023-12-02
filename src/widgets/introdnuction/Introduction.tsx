@@ -7,7 +7,6 @@ type IntroductionType = {
 };
 
 const Introduction = ({ aiDescription }: IntroductionType) => {
-  console.log("descirption", aiDescription);
   return (
     <section className="introduction">
       <Bounce top>
