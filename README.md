@@ -14,7 +14,7 @@ npm install
 # or
 # if you face any problem
 npm install --force
-# to run thw peoject:
+# to run the peoject:
 npm run dev
 
 
