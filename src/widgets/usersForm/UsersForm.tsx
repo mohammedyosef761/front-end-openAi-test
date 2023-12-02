@@ -2,17 +2,16 @@ import React from "react";
 import { SubmitHandler } from "react-hook-form";
 import "../../style/form.css";
 import GenericForm from "../../components/genericForm/GenericForm";
-import { FormWebsiteInput, WebsiteFormProps } from "../../types";
+import { MyFormUsersData, UserFormPorps } from "../../types";
 import { UsersFields } from "../../mock-data";
 
-const WebsiteForm: React.FC<WebsiteFormProps> = ({
+const WebsiteForm: React.FC<UserFormPorps> = ({
   onSubmit,
   isLoading,
   isError,
   isSuccess,
-  data,
 }) => {
-  const handleFormSubmit: SubmitHandler<FormWebsiteInput> = (formdata) => {
+  const handleFormSubmit: SubmitHandler<MyFormUsersData> = (formdata) => {
     onSubmit(formdata);
   };
 
@@ -23,7 +22,6 @@ const WebsiteForm: React.FC<WebsiteFormProps> = ({
       isLoading={isLoading}
       isError={isError}
       isSuccess={isSuccess}
-      data={data}
     />
   );
 };
