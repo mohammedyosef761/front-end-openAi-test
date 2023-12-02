@@ -1,7 +1,6 @@
-import React from "react";
 import "./Introduction.css";
-import Bounce from "react-reveal/Bounce";
 
+const Bounce = require("react-reveal/Bounce");
 type IntroductionType = {
   aiDescription: string;
 };

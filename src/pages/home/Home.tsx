@@ -1,12 +1,11 @@
-import React from "react";
 import HeroSection from "../../widgets/hero-section/HeroSection";
 import Introduction from "../../widgets/introdnuction/Introduction";
 import KeyPoint from "../../widgets/key-point/KeyPoint";
-import FAQ from "../../widgets/faq/Faq";
 import useGetData from "../../hooks/getData/useGetData";
-import Fade from "react-reveal/Fade";
+const Fade = require("react-reveal/Fade");
 import { keyPointData } from "../../mock-data";
 import { cashData, endPoint } from "../../constants";
+import FaqContainer from "../../widgets/faqContainer/FaqContainer";
 
 const Home = () => {
   const { data } = useGetData(
@@ -28,7 +27,7 @@ const Home = () => {
           })}
         </Fade>
       </section>
-      <FAQ />
+      <FaqContainer />
     </>
   );
 };

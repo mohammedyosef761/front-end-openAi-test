@@ -10,7 +10,7 @@ const useGetData = (queryCash: string, endpoint: string) => {
     queryCash,
     GetFunction,
     {
-      onSuccess: (data: any) => {},
+      onSuccess: () => {},
     }
   );
   return { data, isLoading, isError, refetch };

@@ -1,9 +1,9 @@
 import React from "react";
-import "./FAQ.css";
+import "./FaqContainer.css";
 import FAQItem from "../../components/faq-questions/FAQItem";
-import LightSpeed from "react-reveal/LightSpeed";
+const LightSpeed = require("react-reveal/LightSpeed");
 import { faqData } from "../../mock-data";
-const FAQ: React.FC = () => {
+const FaqContainer: React.FC = () => {
   return (
     <div className="faq">
       <h2 style={{ textAlign: "center" }}>Frequently Asked Questions</h2>
@@ -23,4 +23,4 @@ const FAQ: React.FC = () => {
   );
 };
 
-export default FAQ;
+export default FaqContainer;

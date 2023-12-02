@@ -1,6 +1,3 @@
-import axios from "axios";
-import React from "react";
-
 import { useMutation, useQueryClient } from "react-query";
 import { api } from "../../helper/api";
 
@@ -13,12 +10,12 @@ export const useMutaionPostData = <T>(url: string, invalideData?: string) => {
   const { mutate, isLoading, isError, isSuccess, data } = useMutation(
     PostFunction,
     {
-      onSuccess: (data) => {
+      onSuccess: () => {
         if (invalideData) {
           queryClient.resetQueries(invalideData);
         }
       },
-      onError: (error) => {},
+      onError: () => {},
       onMutate: () => {},
     }
   );

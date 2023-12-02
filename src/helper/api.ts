@@ -10,7 +10,7 @@ const api = axios.create({
   },
 });
 
-api.interceptors.request.use((config) => {
+api.interceptors.request.use((config: any) => {
   const cookies = new Cookies();
   const user_id = cookies.get(cookieKey.userId);
   config.headers = {
