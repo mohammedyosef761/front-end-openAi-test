@@ -11,6 +11,11 @@ export const cashData = {
 export const cookieKey = {
   userId: "user_id",
 };
+export const introdunction = {
+  intro:
+    "We are dedicated to delivering innovative solutions that meet your needs. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nullam eget justo vel justo sagittis feugiat.",
+  welcome: "Welcome to YourWebsite",
+};
 
 export const alertMessages = {
   succes: "your information is saved",
