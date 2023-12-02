@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { headerNamePage, headerRoute } from "../../constants";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -31,18 +32,18 @@ const Header = () => {
       >
         <ul>
           <li>
-            <Link to="/" onClick={toggleNav}>
-              Home
+            <Link to={headerRoute.home} onClick={toggleNav}>
+              {headerNamePage.home}
             </Link>
           </li>
           <li>
-            <Link to="/admin" onClick={toggleNav}>
-              Admin
+            <Link to={headerRoute.admin} onClick={toggleNav}>
+              {headerNamePage.admin}
             </Link>
           </li>
           <li>
-            <Link to="/users" onClick={toggleNav}>
-              User
+            <Link to={headerRoute.users} onClick={toggleNav}>
+              {headerNamePage.users}
             </Link>
           </li>
         </ul>
